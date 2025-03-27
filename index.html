@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Coche {
+        #kilometraje;
+  constructor(marca, modelo,año) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.año = año;
+  }
+    describir() {
+    console.log(`Este es un coche de la marca ${this.marca} es el modelo ${this.modelo} y es del año ${this.edad} .`);
+  }
+    obtenerKilometraje(){
+        return this.#kilometraje;
+    }
+}
+
+const coche1 = new Coche("Toyota","Corolla",2020 );
+console.log(coche1.marca); 
+console.log(coche1.modelo); 
+console.log(coche1.año); 
+console.log(coche1.obtenerKilometraje);
+
+coche1.describir();
+
+class Camion extends Coche{
+    Cargar(){
+        console.log(`El camión de marca ${this.marca} y modelo ${this.modelo} se esta cargando.`)
+    }
+}
+const camion1 = new Camion("Scania","T400",2023 );
+console.log(camion1.marca); 
+console.log(camion1.modelo); 
+console.log(camion1.año); 
+console.log(camion1.obtenerKilometraje);
+
+camion1.Cargar();
+
+// Clase Libro
+class Libro {
+  constructor(titulo, autor, ISBN) {
+    this.titulo = titulo;
+    this.autor = autor;
+    this.ISBN = ISBN;
+  }
+}
+
+// Clase Biblioteca
+class Biblioteca {
+  constructor() {
+    this.libros = [];  // Array para almacenar los libros
+  }
+
+  // Método para añadir un libro
+  añadirLibro(libro) {
+    this.libros.push(libro);
+  }
+
+  // Método para eliminar un libro por ISBN
+  eliminarLibroPorISBN(ISBN) {
+
+  }
+
+  // Método para buscar un libro por título
+  buscarLibroPorTitulo(titulo) {
+
+  }
+}
+
+// Crear una instancia de Biblioteca
+const miBiblioteca = new Biblioteca();
+
+// Crear instancias de libros
+const libro1 = new Libro("Cien años de soledad", "Gabriel García Márquez", "1");
+const libro2 = new Libro("El Quijote", "Miguel de Cervantes", "2");
+const libro3 = new Libro("1984", "George Orwell", "3");
+
+// Añadir libros a la biblioteca usando el metodo
+miBiblioteca.añadirLibro(libro1);
+miBiblioteca.añadirLibro(libro2);
+miBiblioteca.añadirLibro(libro3);
+
+//Eliminar libros usando el método
+miBiblioteca.eliminarLibroPorISBN(2);
+
+//Buscar libro por título usando el metodo
+miBiblioteca.buscarLibroPorTitulo("1984");
+
+//Muestro libros
+console.log(miBiblioteca);
+
+</script>
+</html>
