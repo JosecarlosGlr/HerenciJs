@@ -63,18 +63,25 @@ class Animal {
   }
 
   hacerSonido() {
-    document.getElementById("display2").textContent =(`${this.nombre} hace un sonido.`);
+    document.getElementById("display2").innerHTML +=(`${this.nombre} hace un sonido.`);
   }
 }
 
 class Perro extends Animal {
   hacerSonido() {
-    document.getElementById("display2").innerHTML =this.nombre+ ' ladra muy fuerte.';
+    document.getElementById("display2").innerHTML +=this.nombre+ ' ladra muy fuerte.'+'<br>';
   }
 }
 
 const perro1 = new Perro("Firulais");
-perro.hacerSonido(); 
+perro1.hacerSonido(); 
 
+class Gato extends Animal {
+  hacerSonido(){
+    document.getElementById("display2").innerHTML+=this.nombre+ ' maúlla.'+'<br>';
+  }
+}
+miGato = new Gato("koty");
+miGato.hacerSonido();
 </script>
 </html>
