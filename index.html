@@ -6,15 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p id="display"></p>
+    <p id="display2"></p>
+    <p id="display3"></p>
 </body>
 <script>
     class Coche {
         #kilometraje;
-  constructor(marca, modelo,año) {
+  constructor(marca, modelo,año,kilometraje) {
     this.marca = marca;
     this.modelo = modelo;
     this.año = año;
+    this.#kilometraje = kilometraje;
   }
     describir() {
     console.log(`Este es un coche de la marca ${this.marca} es el modelo ${this.modelo} y es del año ${this.edad} .`);
@@ -22,81 +25,56 @@
     obtenerKilometraje(){
         return this.#kilometraje;
     }
+    describirp(){
+      document.getElementById('display').innerHTML += this.modelo+" "+this.marca+" "+this.año+ "kms: "+ this.#kilometraje+"<br>"
+    }
 }
 
-const coche1 = new Coche("Toyota","Corolla",2020 );
+const coche1 = new Coche("Toyota","Corolla",2020,120000 );
+const coche2 = new Coche("Seat","León",2015,200000 );
 console.log(coche1.marca); 
 console.log(coche1.modelo); 
 console.log(coche1.año); 
 console.log(coche1.obtenerKilometraje);
 
 coche1.describir();
+coche1.describirp();
+coche1.obtenerKilometraje();
+coche2.describirp();
+coche2.obtenerKilometraje();
 
 class Camion extends Coche{
     Cargar(){
-        console.log(`El camión de marca ${this.marca} y modelo ${this.modelo} se esta cargando.`)
+        document.getElementById('display3').innerHTML+= 'El camión de marca '+ this.marca +' y modelo ' +this.modelo+ ' se esta cargando.'+'<br>'
     }
 }
-const camion1 = new Camion("Scania","T400",2023 );
+const camion1 = new Camion("Scania","T400",2023,300000 );
 console.log(camion1.marca); 
 console.log(camion1.modelo); 
 console.log(camion1.año); 
 console.log(camion1.obtenerKilometraje);
 
 camion1.Cargar();
+camion1.describirp();
 
-// Clase Libro
-class Libro {
-  constructor(titulo, autor, ISBN) {
-    this.titulo = titulo;
-    this.autor = autor;
-    this.ISBN = ISBN;
+class Animal {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+
+  hacerSonido() {
+    document.getElementById("display2").textContent =(`${this.nombre} hace un sonido.`);
   }
 }
 
-// Clase Biblioteca
-class Biblioteca {
-  constructor() {
-    this.libros = [];  // Array para almacenar los libros
-  }
-
-  // Método para añadir un libro
-  añadirLibro(libro) {
-    this.libros.push(libro);
-  }
-
-  // Método para eliminar un libro por ISBN
-  eliminarLibroPorISBN(ISBN) {
-
-  }
-
-  // Método para buscar un libro por título
-  buscarLibroPorTitulo(titulo) {
-
+class Perro extends Animal {
+  hacerSonido() {
+    document.getElementById("display2").innerHTML =this.nombre+ ' ladra muy fuerte.';
   }
 }
 
-// Crear una instancia de Biblioteca
-const miBiblioteca = new Biblioteca();
-
-// Crear instancias de libros
-const libro1 = new Libro("Cien años de soledad", "Gabriel García Márquez", "1");
-const libro2 = new Libro("El Quijote", "Miguel de Cervantes", "2");
-const libro3 = new Libro("1984", "George Orwell", "3");
-
-// Añadir libros a la biblioteca usando el metodo
-miBiblioteca.añadirLibro(libro1);
-miBiblioteca.añadirLibro(libro2);
-miBiblioteca.añadirLibro(libro3);
-
-//Eliminar libros usando el método
-miBiblioteca.eliminarLibroPorISBN(2);
-
-//Buscar libro por título usando el metodo
-miBiblioteca.buscarLibroPorTitulo("1984");
-
-//Muestro libros
-console.log(miBiblioteca);
+const perro1 = new Perro("Firulais");
+perro.hacerSonido(); 
 
 </script>
 </html>
